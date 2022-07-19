@@ -75,14 +75,16 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-		  p.alintol = alint[0].code.text;
+		  p.alintol = '<table>';
 		  alint.forEach(element => {
 			  if (typeof element.code.text != 'undefined')
 			  {
 				var intol = element.code.text;
+				p.alintol += '<tr><td>' + intol + '</td></tr>';
 				console.log(intol);
 			  }
 		  });
+		  p.alintol += '</table>';
 		  
 		  
 /*
