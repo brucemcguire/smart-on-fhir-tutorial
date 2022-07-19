@@ -80,7 +80,19 @@
 			  if (typeof element.code.text != 'undefined')
 			  {
 				var intol = element.code.text;
-				p.alintol += '<tr><td>' + intol + '</td></tr>';
+				p.alintol += '<tr><td>' + intol + '</td>' ;
+				
+				if (typeof element.reaction.manifestation.text != 'undefined')
+				{
+					p.alintol += '<td>' + element.reaction.manifestation.text + '</td>';
+				}
+				
+				if (typeof element.reaction.manifestation.severity != 'undefined')
+				{
+					p.alintol += '<td>(' + element.reaction.manifestation.severity + ')</td>';
+				}
+
+				p.alintol += '</tr>';
 				console.log(intol);
 			  }
 		  });
