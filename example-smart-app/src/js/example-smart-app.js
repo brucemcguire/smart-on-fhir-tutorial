@@ -11,26 +11,39 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+
+		var alint = smart.patient.api.fetchAll({
+                    type: 'AllergyIntolerance',
+                    query: {
+                      code: {
+                        $or: ['http://loinc.org|82606-5']
+                      }
+                    }
+		});
+
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
                       code: {
-                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4','http://loinc.org|8310-5',
+                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4', 'http://loinc.org|8310-5',
                               'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|85354-9']
                       }
                     }
                   });
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv, alint).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv, alint).done(function(patient, obv, alint) {
           var byCodes = smart.byCodes(obv, 'code');
+		  var alints = smart.byCodes(alint, 'code');
+
+		  var alintzero = getQuantityValueAndUnit(alints[0]);
+
           var gender = patient.gender;
 
           var fname = '';
           var lname = '';
-
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given;
             lname = patient.name[0].family;
@@ -65,6 +78,8 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
+		  p.alintol = alintzero;
+
           ret.resolve(p);
         });
       } else {
@@ -89,6 +104,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       tmprture: {value: ''},
+	  alintol:  {value: ''},
     };
   }
 
@@ -133,6 +149,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#tmprture').html(p.tmprture);
+    $('#alintol').html(p.alintol);
   };
 
 })(window);
