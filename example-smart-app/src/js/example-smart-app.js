@@ -76,26 +76,28 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
 		  p.alintol = '<table>';
-		  alint.forEach(element => {
-			  if (typeof element.code.text != 'undefined')
+		  alint.forEach(elem => {
+			  if (typeof elem.code.text != 'undefined')
 			  {
 				p.alintol += '</tr>';
-				p.alintol += '<td>' + element.code.text + '</td>' ;
+				p.alintol += '<td>' + elem.code.text + '</td>' ;
 				
-				if (typeof element.reaction != 'undefined')
+				if (typeof elem.reaction != 'undefined')
 				{
-					element.reaction.forEach(react => {
+					elem.reaction.forEach(react => {
 						if (typeof react.manifestation != 'undefined')
 						{
-							if (typeof react.manifestation.text != 'undefined')
-							{
-								p.alintol += '<td>' + react.manifestation.text + '</td>';
-							}
-					
-							if (typeof react.manifestation.severity != 'undefined')
-							{
-								p.alintol += '<td>(' + react.manifestation.severity + ')</td>';
-							}
+							react.manifestation.forEach(manif => {
+								if (typeof manif.text != 'undefined')
+								{
+									p.alintol += '<td>' + manif.text + '</td>';
+								}
+						
+								if (typeof manif.severity != 'undefined')
+								{
+									p.alintol += '<td>(' + manif.severity + ')</td>';
+								}
+							});
 						}
 					});
 				}
