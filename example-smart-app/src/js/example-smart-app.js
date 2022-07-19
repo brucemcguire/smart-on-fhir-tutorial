@@ -76,10 +76,10 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
 		  p.alintol = alint[0].code.text;
-		  alint.forEach(element => 
+		  alint.forEach(element => {
 			var intol = element.code.text;
 			console.log(intol);
-			);
+		  });
 		  
 		  
 /*
