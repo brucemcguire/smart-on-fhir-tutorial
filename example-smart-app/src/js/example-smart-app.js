@@ -52,7 +52,7 @@
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
 
-		  p.temperature = tmprture;
+		  p.tmprture = tmprture;
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -88,6 +88,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      tmprture: {value: ''},
     };
   }
 
