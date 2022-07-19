@@ -79,8 +79,8 @@
 		  alint.forEach(element => {
 			  if (typeof element.code.text != 'undefined')
 			  {
-				var intol = element.code.text;
-				p.alintol += '<tr><td>' + intol + '</td>' ;
+				p.alintol += '</tr>';
+				p.alintol += '<td>' + element.code.text + '</td>' ;
 				
 				if (typeof element.reaction.manifestation.text != 'undefined')
 				{
