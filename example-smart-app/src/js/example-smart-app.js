@@ -99,7 +99,6 @@
 				}
 
 				p.alintol += '</tr>';
-				console.log(intol);
 			  }
 		  });
 		  p.alintol += '</table>';
