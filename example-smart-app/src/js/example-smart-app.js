@@ -92,12 +92,12 @@
 								{
 									p.alintol += '<td>' + manif.text + '</td>';
 								}
-						
-								if (typeof manif.severity != 'undefined')
-								{
-									p.alintol += '<td>(' + manif.severity + ')</td>';
-								}
 							});
+						}
+						
+						if (typeof react.severity != 'undefined')
+						{
+							p.alintol += '<td>(' + react.severity + ')</td>';
 						}
 					});
 				}
