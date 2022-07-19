@@ -78,7 +78,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-		  p.alintol = alint.entry.resource.code.text;
+		  p.alintol = alint[0].code.text;
 
           ret.resolve(p);
         });
