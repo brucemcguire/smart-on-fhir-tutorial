@@ -76,11 +76,12 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
 		  p.alintol = alint[0].code.text;
-		  
+		  alint.forEach(element => console.log(element.code.text));
+/*
 		  alint.forEach(function(obj){
 			  console.log("Allergy" + obj.code.text);
-			  );
-
+			  )
+*/
           ret.resolve(p);
         });
       } else {
