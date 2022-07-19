@@ -38,7 +38,7 @@
 
 		  console.log(alint);
 
-		  var alintzero = getQuantityValueAndUnit(alints[0]);
+//		  var alintzero = getQuantityValueAndUnit(alint[0]);
 
           var gender = patient.gender;
 
@@ -78,7 +78,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-		  p.alintol = alintzero;
+//		  p.alintol = alintzero;
 
           ret.resolve(p);
         });
