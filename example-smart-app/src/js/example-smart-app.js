@@ -34,11 +34,8 @@
 
         $.when(pt, obv, alint).done(function(patient, obv, alint) {
           var byCodes = smart.byCodes(obv, 'code');
-//		  var alints = smart.byCodes(alint, 'code');
 
 		  console.log(alint);
-
-//		  var alintzero = getQuantityValueAndUnit(alint[0]);
 
           var gender = patient.gender;
 
@@ -79,6 +76,10 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
 		  p.alintol = alint[0].code.text;
+		  
+		  alint.forEach(function(obj){
+			  console.log("Allergy" + obj.code.text);
+			  );
 
           ret.resolve(p);
         });
