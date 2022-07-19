@@ -82,18 +82,18 @@
 				p.alintol += '</tr>';
 				p.alintol += '<td>' + element.code.text + '</td>' ;
 				
-				if (typeof element.reaction != 'undefined')
+				if (typeof element.code.reaction != 'undefined')
 				{
-					if (typeof element.reaction.manifestation != 'undefined')
+					if (typeof element.code.reaction.manifestation != 'undefined')
 					{
-						if (typeof element.reaction.manifestation.text != 'undefined')
+						if (typeof element.code.reaction.manifestation.text != 'undefined')
 						{
-							p.alintol += '<td>' + element.reaction.manifestation.text + '</td>';
+							p.alintol += '<td>' + element.code.reaction.manifestation.text + '</td>';
 						}
 				
-						if (typeof element.reaction.manifestation.severity != 'undefined')
+						if (typeof element.code.reaction.manifestation.severity != 'undefined')
 						{
-							p.alintol += '<td>(' + element.reaction.manifestation.severity + ')</td>';
+							p.alintol += '<td>(' + element.code.reaction.manifestation.severity + ')</td>';
 						}
 					}
 				}
