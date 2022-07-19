@@ -82,20 +82,22 @@
 				p.alintol += '</tr>';
 				p.alintol += '<td>' + element.code.text + '</td>' ;
 				
-				if (typeof element.code.reaction != 'undefined')
+				if (typeof element.reaction != 'undefined')
 				{
-					if (typeof element.code.reaction.manifestation != 'undefined')
-					{
-						if (typeof element.code.reaction.manifestation.text != 'undefined')
+					element.reaction.forEach(react => {
+						if (typeof react.manifestation != 'undefined')
 						{
-							p.alintol += '<td>' + element.code.reaction.manifestation.text + '</td>';
+							if (typeof react.manifestation.text != 'undefined')
+							{
+								p.alintol += '<td>' + react.manifestation.text + '</td>';
+							}
+					
+							if (typeof react.manifestation.severity != 'undefined')
+							{
+								p.alintol += '<td>(' + react.manifestation.severity + ')</td>';
+							}
 						}
-				
-						if (typeof element.code.reaction.manifestation.severity != 'undefined')
-						{
-							p.alintol += '<td>(' + element.code.reaction.manifestation.severity + ')</td>';
-						}
-					}
+					});
 				}
 
 				p.alintol += '</tr>';
