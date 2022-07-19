@@ -82,9 +82,15 @@
 				p.alintol += '</tr>';
 				p.alintol += '<td>' + element.code.text + '</td>' ;
 				
-				if (typeof element.reaction.manifestation.text != 'undefined')
+				if (typeof element.reaction != 'undefined')
 				{
-					p.alintol += '<td>' + element.reaction.manifestation.text + '</td>';
+					if (typeof element.reaction.manifestation != 'undefined')
+					{
+						if (typeof element.reaction.manifestation.text != 'undefined')
+						{
+							p.alintol += '<td>' + element.reaction.manifestation.text + '</td>';
+						}
+					}
 				}
 				
 				if (typeof element.reaction.manifestation.severity != 'undefined')
