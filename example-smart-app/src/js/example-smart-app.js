@@ -15,10 +15,8 @@
 		var alint = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
                     query: {
-                      code: {
-                        $or: ['http://loinc.org|82606-5']
+                      "clinical-status": 'active'
                       }
-                    }
 		});
 
         var obv = smart.patient.api.fetchAll({
