@@ -77,8 +77,11 @@
 
 		  p.alintol = alint[0].code.text;
 		  alint.forEach(element => {
-			var intol = element.code.text;
-			console.log(intol);
+			  if (typeof element.code.text != 'undefined')
+			  {
+				var intol = element.code.text;
+				console.log(intol);
+			  }
 		  });
 		  
 		  
