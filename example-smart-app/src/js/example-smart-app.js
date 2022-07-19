@@ -34,7 +34,9 @@
 
         $.when(pt, obv, alint).done(function(patient, obv, alint) {
           var byCodes = smart.byCodes(obv, 'code');
-		  var alints = smart.byCodes(alint, 'code');
+//		  var alints = smart.byCodes(alint, 'code');
+
+		  console.log(alint);
 
 		  var alintzero = getQuantityValueAndUnit(alints[0]);
 
